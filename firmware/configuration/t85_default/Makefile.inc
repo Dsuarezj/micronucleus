@@ -17,7 +17,8 @@ DEVICE = attiny85
 # - round that down to 94 - our new bootloader address is 94 * 64 = 6016, in hex = 1780
 BOOTLOADER_ADDRESS = 1980
 
-FUSEOPT = -U lfuse:w:0xe1:m -U hfuse:w:0xdd:m -U efuse:w:0xfe:m
+#FUSEOPT = -U lfuse:w:0xe1:m -U hfuse:w:0xdd:m -U efuse:w:0xfe:m
+FUSEOPT = -U lfuse:w:0xd1:m -U hfuse:w:0xdd:m -U efuse:w:0xfe:m
 FUSEOPT_DISABLERESET = -U lfuse:w:0xe1:m -U efuse:w:0xfe:m -U hfuse:w:0x5d:m
 
 #---------------------------------------------------------------------
@@ -51,6 +52,7 @@ FUSEOPT_DISABLERESET = -U lfuse:w:0xe1:m -U efuse:w:0xfe:m -U hfuse:w:0x5d:m
 #
 # Fuse low byte:
 # 0xe1 = 1 1 1 0   0 0 0 1
+# 0xd1 = 1 1 0 1   0 0 0 1
 #        ^ ^ \+/   \--+--/
 #        | |  |       +------- CKSEL 3..0 (clock selection -> HF PLL)
 #        | |  +--------------- SUT 1..0 (BOD enabled, fast rising power)
